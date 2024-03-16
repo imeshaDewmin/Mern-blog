@@ -93,8 +93,8 @@ export default function CreatePost() {
                         <option value="uncategorized">Select a category</option>
                         <option value="lifestyle">Life Style</option>
                         <option value="technology">Technology</option>
-                        <option value="personaldevelopment">Personal Development</option>
-                        <option value="careerandpersonaldevelopment">Career and Professional Development</option>
+                        <option value="personal_development">Personal Development</option>
+                        <option value="career_and_professional_development">Career and Professional Development</option>
                         <option value="finance">Finance</option>
                         <option value="entertainment">Entertainment</option>
                         <option value="education">Education</option>
