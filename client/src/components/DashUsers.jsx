@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from 'react-redux';
 import { Button, Modal, ModalHeader, Table } from 'flowbite-react';
 import { HiOutlineExclamationCircle } from 'react-icons/hi';
-import { FaCheck,FaTimes } from 'react-icons/fa';
+import { FaCheck, FaTimes } from 'react-icons/fa';
 
 
 export default function DashUsers() {
@@ -52,7 +52,20 @@ export default function DashUsers() {
     };
 
     const handleDeleteUser = async () => {
-
+        try {
+            const res = await fetch(`api/user/delete/${userIdToDelete}`, {
+                method: 'DELETE'
+            });
+            const data = await res.json();
+            if (res.ok) {
+                setUsers((prev) => prev.filter((user) => user._id !== userIdToDelete));
+                setShowModal(false);
+            } else {
+                console.log(data.message);
+            }
+        } catch (error) {
+            console.log(error.message)
+        }
     }
 
     return (
@@ -70,7 +83,7 @@ export default function DashUsers() {
                         <Table.HeadCell>Delete</Table.HeadCell>
                     </Table.Head>
                     {users.map((user) => (
-                        <Table.Body className='divide-y'key={user._id}>
+                        <Table.Body className='divide-y' key={user._id}>
                             <Table.Row className='bg-white dark:border-gray-700 dark:bg-gray-800'>
 
                                 <Table.Cell>{new Date(user.createdAt).toLocaleDateString()}
