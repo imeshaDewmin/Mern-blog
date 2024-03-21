@@ -13,13 +13,13 @@ export default function Header() {
     const { theme } = useSelector((state) => state.theme);
     const handleSignOut = async () => {
         try {
-            const res = await fetch('/api/user/signout',{
-                method:'POST',
+            const res = await fetch('/api/user/signout', {
+                method: 'POST',
             });
-            const data=await res.json();
-            if (!res.ok){
+            const data = await res.json();
+            if (!res.ok) {
                 console.log(data.message);
-            }else{
+            } else {
                 dispatch(signoutSuccess());
             }
         }
@@ -103,12 +103,6 @@ export default function Header() {
                 <Navbar.Link active={path === "/about"} as={'div'} >
                     <Link to='/about'>
                         About
-                    </Link>
-                </Navbar.Link>
-
-                <Navbar.Link active={path === "/projects"} as={'div'}>
-                    <Link to='/projects'>
-                        Projects
                     </Link>
                 </Navbar.Link>
 
