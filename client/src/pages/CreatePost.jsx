@@ -99,6 +99,7 @@ export default function CreatePost() {
                         <option value="entertainment">Entertainment</option>
                         <option value="education">Education</option>
                         <option value="health">Health and Wellness</option>
+                        <option value="sports">Sports</option>
 
                     </Select>
                 </div>
